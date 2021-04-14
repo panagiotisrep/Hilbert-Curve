@@ -22,7 +22,7 @@ SOFTWARE.
 
 ---
 
-Feautures of this software were ported in c++ from python code
+The code to compute Hilbert values was ported in c++ from python code
 found in https://github.com/galtay/hilbertcurve:
 
 MIT License
