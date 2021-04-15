@@ -38,7 +38,7 @@ std::vector<Entity *> entities{&e1, &e2, &e3, &e4, &e5};
 
 // sort the entities w.r.t. Hilber value
 std::vector<unsigned long> hilbertValues;
-hilbertCurve.sortData<Entity, struct myFunctor>(entities, hilbertValues);
+hilbertCurve.sortData<Entity, struct myFunctor>(entities, myFunctor, hilbertValues);
 ```
 
 You can find more documentation in the project's [page](https://panagiotisrep.github.io/Hilbert-Curve).

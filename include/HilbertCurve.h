@@ -97,10 +97,11 @@ namespace HilbertCurve {
          * @tparam DATA_TYPE The type of the data
          * @tparam COORDS_FUNCTOR A functor that takes a DATA_TYPE, maps it to a point in the hypercube and returns a std::vector<unsigned long> with its coordinates
          * @param[in, out] data A vector with all the data
+         * @param[in] functor A functor to map the data to hypercube points
          * @param[out] hilbertValues The Hilbert values of the sorted data
          */
         template<typename DATA_TYPE, typename COORDS_FUNCTOR>
-        void sortData(std::vector<DATA_TYPE *> &data, std::vector<unsigned long> &hilbertValues);
+        void sortData(std::vector<DATA_TYPE *> &data, COORDS_FUNCTOR & functor, std::vector<unsigned long> &hilbertValues);
 
     private:
 
@@ -236,7 +237,7 @@ namespace HilbertCurve {
     }
 
     template<typename DATA_TYPE, typename COORDS_FUNCTOR>
-    void HilbertCurve::sortData(std::vector<DATA_TYPE *> &data, std::vector<unsigned long> &hilbertValues) {
+    void HilbertCurve::sortData(std::vector<DATA_TYPE *> &data, COORDS_FUNCTOR & functor, std::vector<unsigned long> &hilbertValues) {
         // we need this class for std::sort()
         class DATA {
         public:
@@ -249,7 +250,6 @@ namespace HilbertCurve {
         };
 
         std::vector<DATA> _data(data.size());
-        COORDS_FUNCTOR functor;
 
         // compute the Hilbert value of all data
         int at = 0;

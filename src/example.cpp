@@ -60,7 +60,7 @@ int main() {
 
     // sort the entities w.r.t. Hilber value
     std::vector<unsigned long> hilbertValues;
-    hilbertCurve.sortData<Entity, struct myFunctor>(entities, hilbertValues);
+    hilbertCurve.sortData<Entity, struct myFunctor>(entities, myFunctor, hilbertValues);
 
     int at = 0;
     std::cout << std::endl << "Now Sorted" << std::endl;
